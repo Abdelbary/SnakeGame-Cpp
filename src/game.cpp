@@ -6,7 +6,10 @@ Game::Game(std::size_t grid_width, std::size_t grid_height)
     : snake(grid_width, grid_height),
       engine(dev()),
       random_w(0, static_cast<int>(grid_width)),
-      random_h(0, static_cast<int>(grid_height)) {
+      random_h(0, static_cast<int>(grid_height)) 
+      ,score(0)
+      ,currentFoodCount(0)
+      ,foodCapacity(5){
   PlaceFood();
 }
 
