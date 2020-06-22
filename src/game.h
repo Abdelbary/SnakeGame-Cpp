@@ -34,9 +34,9 @@ class Game {
   std::uniform_int_distribution<int> random_h;
 
   int foodCapacity{5};
-  int currentFoodCount{0};
-  int score{0};
-  double shrinkFoddProbability{0.1};
+  int currentFoodCount;
+  int score;
+  double shrinkFoddProbability;
   void PlaceFood();
   void Update();
 };
