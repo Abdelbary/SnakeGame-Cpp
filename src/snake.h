@@ -11,15 +11,16 @@ class Snake {
   Snake(int grid_width, int grid_height)
       : grid_width(grid_width),
         grid_height(grid_height),
-        head_x(grid_width / 2),
-        head_y(grid_height / 2) {}
+        head_x(grid_width/2),
+        head_y(grid_height/2) {}
 
   void Update();
 
-  void GrowBody();
-  bool SnakeCell(int x, int y);
+  void GrowBody();//grow the body of the snake by one cell
+  void ShrinkBody();
+  bool SnakeCell(int x, int y); //tell us if a cell(x,y) is a part of the snak
 
-  Direction direction = Direction::kUp;
+  Direction direction = Direction::kUp; //init snake travling dirc
 
   float speed{0.1f};
   int size{1};
@@ -33,6 +34,8 @@ class Snake {
   void UpdateBody(SDL_Point &current_cell, SDL_Point &prev_cell);
 
   bool growing{false};
+  bool shrinking{false};
+
   int grid_width;
   int grid_height;
 };

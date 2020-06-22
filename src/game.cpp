@@ -49,19 +49,33 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     }
   }
 }
+bool Game::FoodCell(int x, int y) const
+{
+  for (auto const &f : food) {
+    if (x == f.first.x && y == f.first.y) {
+      return true;
+    }
+  }
+  return false;
+}
 
 void Game::PlaceFood() {
   int x, y;
-  while (true) {
-    x = random_w(engine);
-    y = random_h(engine);
-    // Check that the location is not occupied by a snake item before placing
-    // food.
-    if (!snake.SnakeCell(x, y)) {
-      food.x = x;
-      food.y = y;
-      return;
+  for(; currentFoodCount < foodCapacity;currentFoodCount++)
+  {
+    while (true) {
+      x = (random_w(engine)%kScreenWidth)-1;
+      y = (random_h(engine)%kScreenHeight)-1;
+      // Check that the location is not occupied by a snake item before placing
+      // food.
+      if (!snake.SnakeCell(x, y) && !this->FoodCell(x,y) ) {
+        FoodType ft = (rand()%101 <= (shrinkFoddProbability*100))? FoodType::Shrink : FoodType::Normal;
+        food.push_back({{x,y},ft});
+        
+        break;
     }
+  }
+  
   }
 }
 
@@ -74,14 +88,47 @@ void Game::Update() {
   int new_y = static_cast<int>(snake.head_y);
 
   // Check if there's food over here
-  if (food.x == new_x && food.y == new_y) {
-    score++;
-    PlaceFood();
-    // Grow snake and increase speed.
-    snake.GrowBody();
-    snake.speed += 0.02;
+  for(auto f = food.begin() ; f != food.end();f++)
+    if (f->first.x == new_x && f->first.y == new_y) {
+      score++;
+      currentFoodCount--;
+       //check for what kind of food
+      if(f->second == FoodType::Normal)
+      {
+        // Grow snake and increase speed.
+        snake.GrowBody();
+        snake.speed += 0.02;
+        std::cout<<"GROW\n";
+      }
+      else if(f->second == FoodType::Shrink)
+      {
+        snake.ShrinkBody();
+        snake.speed = 0.1f;
+        std::cout<<"SHRINK\n";
+        PlaceKiller(); //as the player choose to eat the shrink bill the price is to add a killer
+        //premenamte bill
+      }
+      else if(f->second == FoodType::Killer)
+          snake.alive  = false; //kill the snake
+
+      food.erase(f);
+      PlaceFood();
+      break;
+    }
+}
+void Game::PlaceKiller() {
+  //for each shrink bill add a killer bill
+  int x,y;
+  while(true)
+  {
+    x = (random_w(engine)%kScreenWidth)-1;
+    y = (random_h(engine)%kScreenHeight)-1;
+    if (!snake.SnakeCell(x, y) && !this->FoodCell(x,y) ) 
+    {
+      food.push_back({{x,y},FoodType::Killer});
+      break;
+    } 
   }
 }
-
 int Game::GetScore() const { return score; }
 int Game::GetSize() const { return snake.size; }
