@@ -9,7 +9,8 @@ Game::Game(std::size_t grid_width, std::size_t grid_height)
       random_h(0, static_cast<int>(grid_height)) 
       ,score(0)
       ,currentFoodCount(0)
-      ,foodCapacity(5){
+      ,foodCapacity(5)
+      ,shrinkFoddProbability(0.1){
   PlaceFood();
 }
 
