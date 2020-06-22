@@ -29,3 +29,11 @@ In this project, you can build your own C++ application or extend this Snake gam
 2. Make a build directory in the top level directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
 4. Run it: `./SnakeGame`.
+
+## Game Play
+  * The game has three different feeding points a normal, shrink ,killer.
+  * Normal feed point grow the snake by one cell and increase it's speed.
+  * Shrink feed point shring the snake back to one cell size and restore it's defult speed.
+  * For each shrink feeding point taken by the player a premenent killer point will be placed on the play board.
+  * If the player eaten any of the killer red points instant death is the result.
+  * If the player hit his body with his head instant death is the result.
