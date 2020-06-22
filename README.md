@@ -37,6 +37,7 @@ In this project, you can build your own C++ application or extend this Snake gam
   * For each shrink feeding point taken by the player a premenent killer point will be placed on the play board.
   * If the player eaten any of the killer red points instant death is the result.
   * If the player hit his body with his head instant death is the result.
+  * When the game ends it store the final score to scores file and retrieve the highest score from that file and print it in terminal
 
 ## File and Class Structure
 
