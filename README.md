@@ -37,3 +37,26 @@ In this project, you can build your own C++ application or extend this Snake gam
   * For each shrink feeding point taken by the player a premenent killer point will be placed on the play board.
   * If the player eaten any of the killer red points instant death is the result.
   * If the player hit his body with his head instant death is the result.
+
+## File and Class Structure
+
+There are 5 classes in My Submitted implementation.<br>
+
+| class name | Purpose                                                                                                 |
+| ---------- | ------------------------------------------------------------------------------------------------------- |
+| Controller | Interact with users, let users use keyboard to control the snake in the game.                           |
+| Game       | Game class stores the state in the game, the function object **run** has the game run in loops til end. |
+| Renderer   | render the game to the screen.                                                                          |
+| Snake      | contains attributes to keep track of the Snake speed, size, and location.                               |
+| Logger     | Read, Write and print the history record for players.                                                   |
+
+## Rubric Points 
+
+1. The project demonstrates an understanding of C++ functions and control structures in all classes.
+2. The project reads data from a file and process the data and writes data to a file[in main function read the highest score from a file].
+3. The project accepts user input and processes the input.[game arrows]
+4. The project uses Object Oriented Programming techniques. whith added methods and functionallity to the base code [shrinkSnake in class snake | foodCell in class food | vector of food points in class food | enum class foodType].
+5. Class constructors utilize member initialization lists.[all calss members init using init list]
+6. Classes abstract implementation details from their interfaces.[function names are clear and comments are used where needed]   
+
+   
