@@ -1,12 +1,9 @@
 # CPPND: Capstone Snake Game Example
 
-This is a starter repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). The code for this repo was inspired by [this](https://codereview.stackexchange.com/questions/212296/snake-game-in-c-with-sdl) excellent StackOverflow post and set of responses.
+The code for this repo was inspired by [this](https://codereview.stackexchange.com/questions/212296/snake-game-in-c-with-sdl) excellent StackOverflow post and set of responses.
 
-<img src="snake_game.gif"/>
-
-The Capstone Project gives you a chance to integrate what you've learned throughout this program. This project will become an important part of your portfolio to share with current and future colleagues and employers.
-
-In this project, you can build your own C++ application or extend this Snake game, following the principles you have learned throughout this Nanodegree Program. This project will demonstrate that you can independently create applications using a wide range of C++ features.
+<img src="gamePlay.gif"/>
+<img src="consol-output.png"/>
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
@@ -30,6 +27,8 @@ In this project, you can build your own C++ application or extend this Snake gam
 3. Compile: `cmake .. && make`
 4. Run it: `./SnakeGame`.
 
+<img src="build.png"/>
+
 ## Game Play
   * The game has three different feeding points a normal, shrink ,killer.
   * Normal feed point grow the snake by one cell and increase it's speed.
@@ -51,13 +50,5 @@ There are 5 classes in My Submitted implementation.<br>
 | Snake      | contains attributes to keep track of the Snake speed, size, and location.                               |
 | Logger     | Read, Write and print the history record for players.                                                   |
 
-## Rubric Points 
-
-1. The project demonstrates an understanding of C++ functions and control structures in all classes.
-2. The project reads data from a file and process the data and writes data to a file[in main function read the highest score from a file].
-3. The project accepts user input and processes the input.[game arrows]
-4. The project uses Object Oriented Programming techniques. whith added methods and functionallity to the base code [shrinkSnake in class snake | foodCell in class food | vector of food points in class food | enum class foodType].
-5. Class constructors utilize member initialization lists.[all calss members init using init list]
-6. Classes abstract implementation details from their interfaces.[function names are clear and comments are used where needed]   
 
    
